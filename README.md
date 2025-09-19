@@ -5,7 +5,7 @@
   
   ### Building Production-Ready LLM Applications with Vertex AI
   
-  **Authors:** Ayo Adedeji, Lavi Nigam, Sarita Joshi, Stephanie Gervasi
+  **Authors:** [Ayo Adedeji](https://linkedin.com/in/ayoadedeji), [Lavi Nigam](https://linkedin.com/in/lavinigam), [Sarita A Joshi](https://linkedin.com/in/sarjoshi9), [Stephanie Gervasi](https://linkedin.com/in/stephaniegervasi)
   
   [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/)
   [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -32,7 +32,7 @@ This repository contains hands-on exercises, code samples, and projects accompan
 ### Setup Instructions
 ```bash
 # Clone this repository
-git clone https://github.com/yourusername/genai-on-google-cloud.git
+git clone https://github.com/ayoisio/genai-on-google-cloud.git
 
 # Install required dependencies
 pip install -r requirements.txt
@@ -71,10 +71,10 @@ Measuring and evolving your organization's AI capabilities.
 
 ## 🛠️ Technologies Used
 
-- **Google Cloud Platform**: Vertex AI, BigQuery, Cloud Run
-- **Frameworks**: Agent Development Kit (ADK), LangChain
+- **Google Cloud Platform**: Vertex AI, BigQuery, Cloud Run, GKE
+- **Frameworks**: Agent Development Kit (ADK)
 - **Languages**: Python, SQL
-- **Models**: Gemini, PaLM, open-source models
+- **Models**: Gemini, open-source models
 
 ## 📝 Contributing
 
@@ -94,8 +94,6 @@ This project is licensed under the MIT License - see the [LICENSE](./LICENSE) fi
 
 For questions and discussions:
 - Open an issue in this repository
-- Join our [Discord community](https://discord.gg/example)
-- Contact the authors via [book website](https://example.com)
 
 ---
 
