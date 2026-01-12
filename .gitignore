@@ -1,3 +1,10 @@
+# Claude Code
+.adk/
+.chapters/
+.claude/
+CLAUDE.md
+**/.plan/
+
 # Python
 __pycache__/
 *.py[cod]
@@ -27,8 +34,9 @@ Thumbs.db
 .env
 credentials/
 
-# Data
-data/
+# Data (but allow chapter sample data)
+/data/
+!chapter-*/data/
 *.csv
 *.parquet
 *.pkl
