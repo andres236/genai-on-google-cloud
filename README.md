@@ -46,7 +46,7 @@ gcloud auth application-default login
 <img src="images/owl-front.png" alt="Guide Owl" width="80" align="right"/>
 
 ### [Chapter 1: The Challenge of LLM Application Development](./chapter-1/)
-Introduction to LLM complexities and the unique challenges of production deployment.
+Introduction to LLM complexities and production deployment challenges. Includes curated courses, video tutorials, and links to official Gemini 3 getting-started notebooks.
 
 ### [Chapter 2: Data Readiness and Accessibility](./chapter-2/)
 Comprehensive strategies for preparing data for LLM applications.
@@ -64,10 +64,10 @@ Metrics, benchmarking, and optimization techniques for LLM applications.
 Fine-tuning strategies and production infrastructure considerations.
 
 ### [Chapter 7: MLOps for Production-Ready Models](./chapter-7/)
-Iterative processes and operational excellence for LLM systems.
+AgentOps practices for production AI systems. Includes 35+ curated Vertex AI notebooks covering ML Metadata, experiments, pipelines, monitoring, and deployment.
 
 ### [Chapter 8: AI Maturity Framework](./chapter-8/)
-Measuring and evolving your organization's AI capabilities.
+Measuring and evolving your organization's AI capabilities. Includes self-assessment workbook, scoring rubric, use case prioritization template, and phase transition roadmap.
 
 ## 🛠️ Technologies Used
 
