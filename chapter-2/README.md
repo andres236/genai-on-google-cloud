@@ -13,8 +13,10 @@ This chapter covers the foundational data readiness concepts required for buildi
 - **Data Readiness Dimensions**: Discoverability, accessibility, quality, format, governance
 - **Unified Data Platform**: BigQuery, Cloud Storage, Vertex AI, Dataplex
 - **Document Processing**: Extracting structured data from unstructured documents
-- **RAG Patterns**: From Naive RAG to Advanced RAG architectures
+- **RAG Evolution**: From Naive RAG → Advanced RAG → Agentic RAG
 - **Vector Search**: Embeddings, indexing, and semantic search
+- **GraphRAG**: Knowledge graphs for enhanced retrieval with Spanner Graph
+- **Enterprise RAG**: Production-ready patterns with BigQuery and Cloud SQL
 - **Security & Governance**: DLP, access controls, and data protection
 
 ## Learning Objectives
@@ -25,6 +27,9 @@ Upon completing this chapter's exercises, you will be able to:
 - Generate text embeddings and perform semantic search
 - Build a complete RAG pipeline with context assembly
 - Use Vertex AI RAG Engine for managed retrieval-augmented generation
+- Build an Enterprise RAG Knowledge Engine with BigQuery and Cloud SQL
+- Implement GraphRAG with Spanner Graph for structured knowledge retrieval
+- Create Agentic RAG applications with MCP and ADK
 
 ### Learning Path
 
@@ -34,9 +39,14 @@ flowchart LR
     B --> C[Embeddings]
     C --> D[RAG Pipeline]
     D --> E[RAG Engine]
+    E --> F[Enterprise RAG]
+    F --> G[GraphRAG]
+    G --> H[Agentic RAG]
 ```
 
 ## Notebooks
+
+### Foundations
 
 | # | Notebook | Description | Time |
 |---|----------|-------------|------|
@@ -45,6 +55,14 @@ flowchart LR
 | 3 | [03_embeddings_vector_search.ipynb](colabs/03_embeddings_vector_search.ipynb) | Text embeddings and semantic search | ~15 min |
 | 4 | [04_rag_context_assembly.ipynb](colabs/04_rag_context_assembly.ipynb) | Building a complete RAG pipeline | ~15 min |
 | 5 | [05_vertex_ai_rag_engine.ipynb](colabs/05_vertex_ai_rag_engine.ipynb) | Managed RAG with Vertex AI RAG Engine | ~15 min |
+
+### Advanced RAG Patterns
+
+| # | Notebook | Description | Time |
+|---|----------|-------------|------|
+| 6 | [06_enterprise_rag_knowledge_engine.ipynb](colabs/06_enterprise_rag_knowledge_engine.ipynb) | Enterprise RAG with BigQuery ML, Cloud SQL pgvector, and ADK | ~45 min |
+| 7 | [07_graph_rag_spanner.ipynb](colabs/07_graph_rag_spanner.ipynb) | GraphRAG with Spanner Graph and Vertex AI Agent Engine | ~45 min |
+| 8 | [08_agentic_rag_mcp_adk.ipynb](colabs/08_agentic_rag_mcp_adk.ipynb) | Agentic RAG with Model Context Protocol and ADK | ~30 min |
 
 ## Prerequisites
 
@@ -61,7 +79,10 @@ gcloud services enable \
     bigquery.googleapis.com \
     bigquerystorage.googleapis.com \
     storage.googleapis.com \
-    documentai.googleapis.com
+    documentai.googleapis.com \
+    sqladmin.googleapis.com \
+    spanner.googleapis.com \
+    bigqueryconnection.googleapis.com
 ```
 
 ### 3. IAM Permissions
@@ -70,6 +91,8 @@ Ensure your account has the following roles:
 - `roles/bigquery.jobUser`
 - `roles/aiplatform.user`
 - `roles/storage.objectViewer`
+- `roles/cloudsql.admin` (for notebooks 06, 08)
+- `roles/spanner.databaseAdmin` (for notebooks 07, 08)
 
 ## Quick Start
 
@@ -88,7 +111,10 @@ chapter-2/
 │   ├── 02_document_processing.ipynb
 │   ├── 03_embeddings_vector_search.ipynb
 │   ├── 04_rag_context_assembly.ipynb
-│   └── 05_vertex_ai_rag_engine.ipynb
+│   ├── 05_vertex_ai_rag_engine.ipynb
+│   ├── 06_enterprise_rag_knowledge_engine.ipynb
+│   ├── 07_graph_rag_spanner.ipynb
+│   └── 08_agentic_rag_mcp_adk.ipynb
 ├── data/
 │   └── sample_documents/     # Sample files for exercises
 └── solutions/                # Exercise solutions
@@ -126,6 +152,15 @@ auth.authenticate_user()
 - [Vertex AI Documentation](https://cloud.google.com/vertex-ai/docs)
 - [BigQuery ML Documentation](https://cloud.google.com/bigquery/docs/bqml-introduction)
 - [RAG Engine Documentation](https://cloud.google.com/vertex-ai/generative-ai/docs/rag-overview)
+- [Spanner Graph Documentation](https://cloud.google.com/spanner/docs/graph/overview)
+- [Agent Development Kit (ADK)](https://cloud.google.com/vertex-ai/generative-ai/docs/adk/overview)
+- [Model Context Protocol (MCP)](https://modelcontextprotocol.io/)
+
+---
+
+> 📌 **Looking for Official GCP Notebooks?**  
+> Google Cloud provides official notebooks for RAG patterns, Spanner Graph, and agent development.  
+> Browse the [generative-ai repository](https://github.com/GoogleCloudPlatform/generative-ai) for the latest official examples.
 
 ---
 
