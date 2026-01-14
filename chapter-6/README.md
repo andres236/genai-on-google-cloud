@@ -140,16 +140,22 @@ The official repository includes notebooks for Llama, Mistral, DeepSeek, Qwen, a
 
 ## Need Help?
 
-<img src="../images/owl-right.png" alt="Helper Owl" width="80" align="left"/>
-
-<br/>
+<table>
+<tr>
+<td width="100" valign="top">
+<img src="../images/owl-right.png" alt="Helper Owl" width="80"/>
+</td>
+<td>
 
 If you encounter issues with the notebooks, check the error messages carefully and ensure:
+
 - GPU runtime is enabled in Colab
 - All required APIs are enabled in your GCP project
 - HuggingFace authentication is complete with Gemma access approved
 
-<br clear="left"/>
+</td>
+</tr>
+</table>
 
 ## What's Next
 
