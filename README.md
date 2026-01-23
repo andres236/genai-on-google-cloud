@@ -56,13 +56,10 @@ Introduction to LLM complexities and production deployment challenges.
 ### [Chapter 2: Data Readiness and Accessibility](./chapter-2/)
 Comprehensive strategies for preparing data for LLM applications.
 
-- **Topics:** Data readiness dimensions (discoverability, accessibility, quality, format, governance), unified data platform, document processing, RAG patterns, vector search, security & governance
-- **Hands-On:** 5 Colab notebooks
-  - `01_data_exploration_bigquery` — Data discovery and quality assessment with BigQuery
-  - `02_document_processing` — Document AI for structured extraction
-  - `03_embeddings_vector_search` — Text embeddings and semantic search
-  - `04_rag_context_assembly` — Building a complete RAG pipeline
-  - `05_vertex_ai_rag_engine` — Managed RAG with Vertex AI RAG Engine
+- **Topics:** Data readiness dimensions, unified data platform, document processing, RAG evolution (Naive → Advanced → Agentic), vector search, GraphRAG with Spanner, enterprise RAG patterns, security & governance
+- **Hands-On:** 8 Colab notebooks across two learning paths
+  - **Foundations (5):** BigQuery exploration, Document AI, embeddings, RAG pipeline, Vertex AI RAG Engine
+  - **Advanced RAG (3):** Enterprise RAG with BigQuery/Cloud SQL, GraphRAG with Spanner Graph, Agentic RAG with MCP + ADK
 
 ---
 
@@ -104,10 +101,13 @@ Metrics, benchmarking, and optimization techniques for LLM applications and agen
 ---
 
 ### [Chapter 6: Tuning and Infrastructure](./chapter-6/)
-Fine-tuning strategies and production infrastructure considerations.
+Fine-tuning strategies and production inference infrastructure on Google Cloud.
 
-- **Topics:** Fine-tuning approaches, inference optimization, infrastructure scaling
-- **Hands-On:** Coming soon
+- **Topics:** Fine-tuning decision framework, QLoRA (4-bit quantization + LoRA), infrastructure bottleneck patterns (bandwidth, memory, compute, network), deployment platforms (Agent Engine, Cloud Run, GKE, Vertex AI Prediction)
+- **Hands-On:** 3 Colab notebooks + links to official Model Garden notebooks
+  - `01_gemma_finetuning` — Fine-tune Gemma 7B with QLoRA for financial analysis
+  - `02_model_garden_deployment` — Deploy models from Vertex AI Model Garden
+  - `03_vllm_serving` — Efficient LLM serving with vLLM and PagedAttention
 
 ---
 
