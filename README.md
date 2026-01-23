@@ -111,34 +111,48 @@ Fine-tuning strategies and production inference infrastructure on Google Cloud.
 
 ---
 
-### [Chapter 7: MLOps for Production-Ready Models](./chapter-7/)
-AgentOps practices for production AI systems — bridging "the model works" to "the model works in production."
+### [Chapter 7: MLOps for Production-Ready AI and Agentic Systems](./chapter-7/)
+AgentOps practices for production AI systems—bridging "the model works" in development to "the model works reliably in production."
 
-- **Topics:** The 9 pillars of AgentOps, MLOps → GenAI Ops → Agent Ops evolution, data versioning & lineage, experiment tracking, model registry & governance, Vertex AI Pipelines, comprehensive monitoring with Cloud Trace, CI/CD with Cloud Build & Deploy, security with Model Armor, cost management with FinOps Hub
-- **Hands-On:** 35+ curated Vertex AI notebooks across 10 categories
-  - ML Metadata & lineage tracking
-  - Experiment tracking with autologging
-  - Model Registry and versioning
-  - Pipelines (KFP, challenger vs blessed deployment)
-  - Model Monitoring (drift detection, batch prediction)
-  - Feature Store for LLM grounding
-  - Deployment (dedicated endpoints, streaming, custom containers)
-  - Explainable AI (feature attributions)
-  - GenAI/LLM operations (resilience patterns)
+- **Topics:** The 9 pillars of AgentOps, MLOps evolution (MLOps → GenAI Ops → Agent Ops), data versioning & lineage, experiment tracking, model registry & governance, Vertex AI Pipelines, comprehensive monitoring with Cloud Trace, CI/CD with Cloud Build & Deploy, security with Model Armor, cost management with FinOps Hub, AgentOps maturity progression
+- **Decision Frameworks (NEW):** Production decision support for retraining triggers, cost attribution models (per-request, team-based, agent-level), circuit breaker configuration, multi-stakeholder model approval workflows (technical, business, compliance, ethical reviews)
+- **Production Patterns (NEW):** Detecting semantic drift in LLM outputs, model collapse prevention, ablation studies for feature impact analysis, feedback loop amplification safeguards, catastrophic model shift detection, multi-agent coordination monitoring
+- **Team Organization (NEW):** Role clarity matrix (ML Engineer, DevOps, SRE, Data Engineer responsibilities), escalation paths for production incidents, cross-functional communication protocols
+- **Hands-On:** 35+ curated Vertex AI notebooks across 10 categories with enhanced "Chapter Concepts" column
+  - ML Metadata & lineage tracking (reproducibility, artifact tracking)
+  - Experiment tracking with autologging (systematic experimentation)
+  - Model Registry and versioning (approval workflows)
+  - Pipelines (KFP, challenger vs blessed deployment, A/B testing)
+  - Model Monitoring (drift detection with PSI/KL divergence, batch prediction monitoring)
+  - Feature Store for LLM grounding (real-time context)
+  - Deployment (dedicated endpoints, VPC-SC security, streaming, custom containers with circuit breakers)
+  - Explainable AI (feature attributions, ethical review support)
+  - GenAI/LLM operations (resilience patterns, semantic drift detection)
+  - Agent Operations (ADK deployment, multi-agent monitoring)
 
 ---
 
-### [Chapter 8: AI Maturity Framework](./chapter-8/)
-Measuring and evolving your organization's AI capabilities with actionable frameworks.
+### [Chapter 8: The AI and Agentic Maturity Framework](./chapter-8/)
+Measuring and advancing your organization's AI capabilities across strategic, cultural, and operational dimensions—with actionable playbooks for phase transitions.
 
-- **Topics:** 3 maturity dimensions (Vision & Leadership, Talent & Culture, Operational & Technical), 3 phases (Tactical → Strategic → Transformational), governance and compliance (EU AI Act), Vertex AI Platform for MLOps, Gemini Enterprise for democratized AI
-- **Resources:**
-  - `maturity_assessment.md` — Self-assessment workbook (28+ questions)
-  - `maturity_rubric.md` — Detailed phase descriptions and scoring
-  - `use_case_mapping.md` — Value vs Effort prioritization template
-  - `roadmap_template.md` — Phase transition planning guide
-  - `resources.md` — Certifications, frameworks, and learning paths
-- **Case Studies:** 3 fictional companies (Cymbal Health, Cymbal Retail, Cymbal Media) demonstrating phase transitions
+- **Core Framework:** 3 maturity dimensions (Vision & Leadership, Talent & Culture, Operational & Technical) × 3 phases (Tactical → Strategic → Transformational) = 9 maturity states with clear progression indicators
+- **Phase Transition Playbooks (NEW):**
+  - **90-Day Tactical → Strategic**: Month-by-month roadmap covering foundation assessment, data governance (Ch 2), evaluation framework (Ch 5), MLOps platform (Ch 7), first strategic project deployment
+  - **12-Month Strategic → Transformational**: Quarterly progression through cultural transformation, platform democratization (Gemini Enterprise Hub), advanced capabilities (multi-agent systems from Ch 4, AIOps), market leadership
+- **Dimension Interdependencies (NEW):** Why isolated optimization fails—failure mode analysis (Strong Vision/Weak Talent, Strong Ops/Weak Vision, Strong Talent/Weak Ops), dependency sequencing strategy, quarterly balancing approach
+- **Technology Decision Frameworks (NEW):**
+  - Build vs Buy decision trees with real examples (chatbots → BUY, fraud detection → BUILD, domain code gen → HYBRID)
+  - Organizational structure guidance (Centralized CoE vs Distributed vs Hybrid by phase)
+  - Platform selection criteria (Tactical: Workbench+AutoML, Strategic: Full Vertex AI, Transformational: Vertex+GKE)
+- **Role-Based Maturity Actions (NEW):** Tailored guidance for CFO (AI financial strategy, cost attribution, ROI), CIO/CTO (infrastructure scaling, deployment velocity), CHRO (workforce transformation, AI literacy), Individual Contributors (career navigation, skill roadmaps)
+- **Cross-Chapter Integration (NEW):** Learning journey maps connecting Ch 2 (data foundation) → Ch 5 (evaluation) → Ch 6 (fine-tuning) → Ch 7 (MLOps) → Ch 8 (maturity assessment), persona-based reading paths (Executives, Technical Leaders, ML Practitioners)
+- **Assessment Tools:**
+  - `maturity_assessment.md` — Self-assessment workbook (28+ questions across dimensions)
+  - `maturity_rubric.md` — Detailed phase descriptions with scoring criteria
+  - `use_case_mapping.md` — Value vs Effort prioritization (Quick Wins, Strategic Bets, Fill-ins, Avoid)
+  - `roadmap_template.md` — Phase transition planning with success metrics
+  - `resources.md` — Google Cloud certifications, AI maturity frameworks, compliance guidance (EU AI Act)
+- **Case Studies:** Cymbal Health (Tactical → Strategic), Cymbal Retail (Strategic → Transformational), Cymbal Media (Transformational maintenance) with phase transition examples
 
 ## 🛠️ Technologies Used
 

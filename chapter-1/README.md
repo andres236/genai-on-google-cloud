@@ -21,6 +21,26 @@ Upon completing this chapter, you will be able to:
 - **Navigate development challenges** - Address data quality, hallucinations, evaluation, and explainability challenges
 - **Plan for deployment and maintenance** - Anticipate infrastructure, security, drift, and monitoring requirements
 
+## Prerequisites
+
+Before exploring Chapter 1 resources, ensure you have:
+
+**Required:**
+- Google Cloud account with billing enabled ([Create account](https://cloud.google.com/free))
+- Project with Vertex AI API enabled ([Enable API](https://console.cloud.google.com/flows/enableapi?apiid=aiplatform.googleapis.com))
+
+**Recommended:**
+- Basic Python knowledge (for Colab notebooks)
+- Familiarity with Jupyter/Colab environments
+- Understanding of REST APIs (helpful but not required)
+
+**For Local Development:**
+- Python 3.10+ installed
+- `pip install google-genai` (Google Gen AI SDK)
+- Google Cloud authentication configured ([Setup guide](https://cloud.google.com/docs/authentication/provide-credentials-adc))
+
+> **New to Google Cloud?** Start with the [Introduction to Generative AI](https://www.coursera.org/learn/introduction-to-generative-ai) course below to build foundational knowledge.
+
 ## Key Concepts
 
 ### What is an LLM?
@@ -108,19 +128,48 @@ This chapter is conceptual and designed to prepare you for hands-on work in subs
 | [How to use RAG](https://www.youtube.com/watch?v=oVtlp72f9NQ) | Embeddings and vector databases for grounding LLM responses |
 | [Intro to Multimodal RAG](https://www.youtube.com/watch?v=fownOApoL-A) | Building RAG systems that reason across text and images |
 
-### Hands-On Notebooks (Gemini 3)
+### Hands-On Notebooks
 
-Try the official Google Cloud Gemini getting-started notebooks directly in Colab:
+#### Start Here: Local Warm-Up Notebook
 
-| Notebook | Description |
-|----------|-------------|
-| [Intro to Gemini 3 Flash](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/getting-started/intro_gemini_3_flash.ipynb) | Fast, efficient model with thinking capabilities |
-| [Intro to Gemini 3 Pro](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/getting-started/intro_gemini_3_pro.ipynb) | Advanced reasoning for complex problems |
-| [Intro to Gemini 3 Image Gen](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/getting-started/intro_gemini_3_image_gen.ipynb) | Image generation and multi-turn editing |
-| [Intro to Gen AI SDK](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/getting-started/intro_genai_sdk.ipynb) | Google Gen AI SDK for Python fundamentals |
-| [Intro to Gemini Chat](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/getting-started/intro_gemini_chat.ipynb) | Chat prompts with Gen AI SDK and LangChain |
+Before exploring official notebooks, validate your setup with our quick environment check:
 
-> **Browse all notebooks**: [GoogleCloudPlatform/generative-ai/gemini/getting-started](https://github.com/GoogleCloudPlatform/generative-ai/tree/main/gemini/getting-started)
+| Notebook | Description | Concepts |
+|----------|-------------|----------|
+| [01_getting_started.ipynb](colabs/01_getting_started.ipynb) | **Quick start**: Verify Vertex AI connection and make your first Gemini 3 API call | Model initialization, basic prompting, thinking levels |
+
+**How to Run:**
+1. Open in [Google Colab](https://colab.research.google.com/github/ayoisio/genai-on-google-cloud/blob/main/chapter-1/colabs/01_getting_started.ipynb) (click the badge in the notebook)
+2. Authenticate when prompted (`auth.authenticate_user()` runs automatically)
+3. Update `PROJECT_ID` in the configuration cell with your Google Cloud project ID
+4. Run all cells (Runtime → Run all)
+
+#### Fundamentals: Gemini 3 Getting Started
+
+Master the basics with official Google Cloud notebooks:
+
+| Notebook | Description | Chapter Concepts |
+|----------|-------------|------------------|
+| [Intro to Gemini 3 Flash](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/getting-started/intro_gemini_3_flash.ipynb) | Fast, efficient model with thinking capabilities | **Model selection** (Chapter: SLM vs LLM tradeoffs) |
+| [Intro to Gemini 3 Pro](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/getting-started/intro_gemini_3_pro.ipynb) | Advanced reasoning for complex problems | **Reasoning models** (Chapter: step-by-step thinking) |
+| [Intro to Gemini 3 Image Gen](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/getting-started/intro_gemini_3_image_gen.ipynb) | Image generation and multi-turn editing | **Multimodal foundation models** (Chapter: text, images, video) |
+| [Intro to Gen AI SDK](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/getting-started/intro_genai_sdk.ipynb) | Google Gen AI SDK for Python fundamentals | **Platform integration** (Chapter: deployment challenges) |
+| [Intro to Gemini Chat](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/getting-started/intro_gemini_chat.ipynb) | Chat prompts with Gen AI SDK and LangChain | **Memory and state** (Chapter: agent orchestration) |
+
+> **Browse all**: [GoogleCloudPlatform/generative-ai/gemini/getting-started](https://github.com/GoogleCloudPlatform/generative-ai/tree/main/gemini/getting-started)
+
+#### Deep Dives: Context Engineering
+
+Apply advanced techniques from the chapter's context engineering strategies:
+
+| Notebook | Description | Chapter Concepts |
+|----------|-------------|------------------|
+| [Intro to Prompt Design](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/prompts/intro_prompt_design.ipynb) | Zero-shot, few-shot, and chain-of-thought prompting techniques | **Prompt engineering** (Chapter: crafting effective inputs) |
+| [Intro to Controlled Generation](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/controlled-generation/intro_controlled_generation.ipynb) | Enforcing JSON schemas and structured output formats | **Controlled generation** (Chapter: output structure guarantees) |
+| [Intro to Function Calling](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/function-calling/intro_function_calling.ipynb) | Connecting LLMs to external APIs and tools | **Agent tools** (Chapter: bridging LLM capabilities to real world) |
+| [Build a DIY ReAct Agent](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/function-calling/intro_diy_react_agent.ipynb) | Implement reasoning + action agent architecture from scratch | **Agent orchestration** (Chapter: ReAct, planning, tool selection) |
+
+> **Next Chapter Preview**: Chapter 2 introduces **RAG (Retrieval-Augmented Generation)** for grounding LLMs with external data—a critical context engineering strategy for production systems.
 
 ## Chapter Roadmap
 
