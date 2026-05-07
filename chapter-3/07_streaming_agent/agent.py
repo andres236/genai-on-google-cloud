@@ -35,6 +35,7 @@ NOTE: This sample includes:
 
 import asyncio
 from datetime import datetime
+from typing import Optional
 from google.adk.agents import Agent
 from google.adk.tools import ToolContext
 
@@ -44,8 +45,8 @@ from google.adk.tools import ToolContext
 # =============================================================================
 
 def lookup_account(
-    customer_id: str = None,
-    phone_number: str = None,
+    customer_id: Optional[str] = None,
+    phone_number: Optional[str] = None,
     tool_context: ToolContext = None
 ) -> dict:
     """Look up a customer account by ID or phone number.
