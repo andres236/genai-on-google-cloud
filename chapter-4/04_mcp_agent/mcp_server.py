@@ -290,12 +290,19 @@ async def handle_sse(request):
         )
 
 
-# Create Starlette app with SSE endpoint at /sse
+async def handle_post(request):
+    """Handle POST messages for MCP SSE transport."""
+    await sse_transport.handle_post_message(
+        request.scope, request.receive, request._send
+    )
+
+
+# Create Starlette app with SSE endpoints
 app = Starlette(
     debug=True,
     routes=[
         Route("/sse", endpoint=handle_sse),
-        Mount("/", app=sse_transport.get_sse_app()),
+        Route("/sse", endpoint=handle_post, methods=["POST"]),
     ],
 )
 

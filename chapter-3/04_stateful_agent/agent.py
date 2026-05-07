@@ -33,6 +33,7 @@ Theme: SmartHome Customer Support (consistent with Chapter 3)
 """
 
 from datetime import datetime, timedelta
+from typing import Optional
 from google.adk.agents import Agent
 from google.adk.tools import ToolContext
 
@@ -56,7 +57,7 @@ PRODUCTS = {
 # TOOLS WITH STATE MANAGEMENT (Examples 3-8, 3-9, 3-10)
 # =============================================================================
 
-def browse_products(category: str = None, tool_context: ToolContext = None) -> dict:
+def browse_products(category: Optional[str] = None, tool_context: ToolContext = None) -> dict:
     """Browse available SmartHome products, optionally filtered by category.
 
     Args:

@@ -209,11 +209,23 @@ all_tools = [
     get_customer_history
 ] + memory_tools
 
-# Example 3-16: Agent with {memory} placeholder in instruction
-root_agent = Agent(
-    name="CustomerSupportAgent",
-    model="gemini-2.5-flash",
-    instruction="""You help customers with their SmartHome products.
+# Build instruction based on whether Memory Bank is available
+_BASE_INSTRUCTION = """You help customers with their SmartHome products.
+
+Your capabilities:
+- Remember customer preferences (contact method, language, etc.)
+- Log and track product issues
+- Provide personalized recommendations based on history
+
+Guidelines:
+- If you recognize the customer from memories, acknowledge them
+- Reference their preferences and past issues when helpful
+- Save new preferences when customers share them
+- Be warm and remember details that matter to them"""
+
+# Example 3-16: Only include {memory} placeholder when Memory Bank is active
+if memory_tools:
+    _INSTRUCTION = """You help customers with their SmartHome products.
 
 Before responding, review these memories:
 ---
@@ -233,7 +245,14 @@ Guidelines:
 - If you recognize the customer from memories, acknowledge them
 - Reference their preferences and past issues when helpful
 - Save new preferences when customers share them
-- Be warm and remember details that matter to them""",
+- Be warm and remember details that matter to them"""
+else:
+    _INSTRUCTION = _BASE_INSTRUCTION
+
+root_agent = Agent(
+    name="CustomerSupportAgent",
+    model="gemini-2.5-flash",
+    instruction=_INSTRUCTION,
     tools=all_tools
 )
 

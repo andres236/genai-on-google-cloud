@@ -245,11 +245,6 @@ solution_agent = Agent(
     instruction="""You are a troubleshooting specialist. Based on the issue
     description and any previous attempts, suggest the next troubleshooting step.
 
-    Context available:
-    - Issue description: {issue_description}
-    - Previous attempts: {previous_attempts}
-    - Last suggested solution: {suggested_solution}
-
     Guidelines:
     1. Start with simple solutions (power cycle, check connections)
     2. Progress to more complex ones (factory reset, firmware update)

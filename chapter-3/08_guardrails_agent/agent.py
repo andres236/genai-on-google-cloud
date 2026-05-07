@@ -44,6 +44,7 @@ from google.adk.agents import Agent
 from google.adk.agents.callback_context import CallbackContext
 from google.adk.models import LlmRequest, LlmResponse
 from google.adk.tools import ToolContext, LongRunningFunctionTool, FunctionTool
+from google.adk.tools.base_tool import BaseTool
 from google.genai import types
 
 
@@ -101,7 +102,7 @@ def before_model_callback(
 
     user_text = ""
     for part in last_content.parts:
-        if hasattr(part, 'text'):
+        if hasattr(part, 'text') and part.text is not None:
             user_text += part.text
 
     # Check input length
@@ -183,23 +184,27 @@ def after_model_callback(
 
 
 def before_tool_callback(
-    callback_context: CallbackContext,
-    tool_name: str,
-    tool_args: dict
+    tool: BaseTool,
+    args: dict,
+    tool_context: ToolContext
 ) -> Optional[dict]:
     """
     Called before each tool execution. Can modify arguments or
     return a result to skip tool execution.
 
+    ADK calls this with keyword arguments:
+        callback(tool=tool, args=function_args, tool_context=tool_context)
+
     Args:
-        callback_context: Context with state and invocation info
-        tool_name: Name of the tool being called
-        tool_args: Arguments being passed to the tool
+        tool: The tool object being called
+        args: Arguments being passed to the tool
+        tool_context: Context with state and invocation info
 
     Returns:
         None to continue, or dict to skip tool and return directly
     """
-    print(f"[GUARDRAIL] Tool call: {tool_name} with args: {tool_args}")
+    tool_name = tool.name
+    print(f"[GUARDRAIL] Tool call: {tool_name} with args: {args}")
 
     # Extra validation for sensitive tools
     if tool_name in SENSITIVE_TOOLS:
@@ -208,7 +213,7 @@ def before_tool_callback(
 
         # Example: Block refunds over a certain amount
         if tool_name == "process_refund":
-            amount = tool_args.get("amount", 0)
+            amount = args.get("amount", 0)
             if amount > 500:
                 return {
                     "success": False,
@@ -220,35 +225,39 @@ def before_tool_callback(
 
 
 def after_tool_callback(
-    callback_context: CallbackContext,
-    tool_name: str,
-    tool_args: dict,
-    tool_result: dict
+    tool: BaseTool,
+    args: dict,
+    tool_context: ToolContext,
+    tool_response: dict
 ) -> dict:
     """
     Called after each tool execution. Can modify the result
     before it's returned to the model.
 
+    ADK calls this with keyword arguments:
+        callback(tool=tool, args=function_args, tool_context=tool_context, tool_response=result)
+
     Args:
-        callback_context: Context with state and invocation info
-        tool_name: Name of the tool that was called
-        tool_args: Arguments that were passed
-        tool_result: Result from the tool
+        tool: The tool object that was called
+        args: Arguments that were passed
+        tool_context: Context with state and invocation info
+        tool_response: Result from the tool
 
     Returns:
         The (potentially modified) result
     """
+    tool_name = tool.name
     # Log tool results for auditing
-    print(f"[GUARDRAIL] Tool {tool_name} completed: {tool_result.get('success', 'N/A')}")
+    print(f"[GUARDRAIL] Tool {tool_name} completed: {tool_response.get('success', 'N/A') if isinstance(tool_response, dict) else 'N/A'}")
 
     # Redact sensitive data from tool results
-    if isinstance(tool_result, dict):
-        for key, value in tool_result.items():
+    if isinstance(tool_response, dict):
+        for key, value in tool_response.items():
             if isinstance(value, str):
                 for pattern, replacement in OUTPUT_REDACTION_PATTERNS:
-                    tool_result[key] = re.sub(pattern, replacement, value)
+                    tool_response[key] = re.sub(pattern, replacement, value)
 
-    return tool_result
+    return tool_response
 
 
 # =============================================================================

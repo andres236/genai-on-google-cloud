@@ -21,6 +21,7 @@ evaluation framework.
 Based on Chapter 5, Example 5-2: Agent Tool Usage Evaluation.
 """
 
+from typing import Optional
 from google.adk.agents import Agent
 
 
@@ -28,7 +29,7 @@ from google.adk.agents import Agent
 # TOOLS FOR EVALUATION
 # =============================================================================
 
-def check_device_status(device_type: str, device_id: str = None) -> dict:
+def check_device_status(device_type: str, device_id: Optional[str] = None) -> dict:
     """Check the status of a smart home device.
 
     Args:
