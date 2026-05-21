@@ -1,0 +1,22 @@
+# This is the CODEOWNERS file for the GenAI on Google Cloud exercises repository.
+# It defines the individuals or teams that are responsible for code in this repository.
+# For more information, see: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+# Global owners for all files in the repository
+*       @ayoisio lavinigam@google.com saritajoshi@google.com
+
+# Chapter-specific owners (mapping core contributors to exercise chapters)
+/chapter-1/   @ayoisio lavinigam@google.com saritajoshi@google.com
+/chapter-2/   @ayoisio lavinigam@google.com saritajoshi@google.com
+/chapter-3/   @ayoisio lavinigam@google.com saritajoshi@google.com
+/chapter-4/   @ayoisio lavinigam@google.com saritajoshi@google.com
+/chapter-5/   @ayoisio lavinigam@google.com saritajoshi@google.com
+/chapter-6/   @ayoisio lavinigam@google.com saritajoshi@google.com
+/chapter-7/   @ayoisio lavinigam@google.com saritajoshi@google.com
+/chapter-8/   @ayoisio lavinigam@google.com saritajoshi@google.com
+
+# Repository configurations and guidelines
+/LICENSE           @ayoisio lavinigam@google.com saritajoshi@google.com
+/README.md         @ayoisio lavinigam@google.com saritajoshi@google.com
+/CONTRIBUTING.md   @ayoisio lavinigam@google.com saritajoshi@google.com
+/.github/          @ayoisio
